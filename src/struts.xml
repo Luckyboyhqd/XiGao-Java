@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- <package name="user" namespace="/" extends="struts-default">
+		注册拦截器
+		<interceptors> 名字和具体执行的类 <interceptor name="LoginInterceptor" class="com.by.action.LoginInterceptor"></interceptor> 
+			定义拦截器栈(一堆拦截器) <interceptor-stack name="myStack"> <interceptor-ref name="LoginInterceptor"></interceptor-ref> 
+			不要忘记引用默认(系统)拦截器栈 <interceptor-ref name="defaultStack"></interceptor-ref> 
+			</interceptor-stack> </interceptors>
+		<action name="login" class="loginAction" method="login">
+			调用拦截器 运用此方法总是失败session里面的user为空？？？？
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="login"></result>
+			<result name="noUser">login.jsp</result>
+			<result name="input"></result>
+		</action>
+
+		<action name="register" class="regAction" method="register">
+			<result name="register"></result>
+			<result name="input"></result>
+		</action>
+		<action name="exit" class="exitAction" method="exit">
+			<result name="exit">exit.jsp</result>
+		</action>
+	</package> -->
+
+	<!-- 使用json返回的方式 -->
+	<package name="user" namespace="/" extends="json-default">
+	<!-- 登录验证action -->
+		<action name="login" class="loginAction" method="login">
+			<result name="login" type="json">
+				<param name="includeProperties">msg</param>
+				<param name="root"></param>
+			</result>
+			<result name="input">login.jsp</result>
+		</action>
+	<!-- 注册 -->
+		<action name="register" class="regAction" method="register">
+			<result name="register" type="json">
+				<param name="includeProperties">msg</param>
+				<param name="root"></param>
+			</result>
+			<result name="input">register.jsp</result>
+		</action>
+	<!-- 退出 -->
+		<action name="exit" class="exitAction" method="exit">
+			<result name="exit" type="json">
+				<param name="includeProperties">msg</param>
+				<param name="root"></param>
+			</result>
+		</action>
+	<!-- 查询 -->
+		<action name="select" class="selectUserAction" method="select">
+			<result name="select" type="json">
+				<param name="excludeProperties">user</param>
+				<param name="root"></param>
+			</result>
+		</action>
+			
+	</package>
+</struts>

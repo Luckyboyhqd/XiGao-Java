@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-3-16 9:30:22 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.by.entity.Goods" table="GOODS">
+        <id name="g_id" type="int">
+            <column name="G_ID" />
+            <generator class="increment" />
+        </id>
+        <property name="identity" type="java.lang.String">
+            <column name="IDENTITY" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="location" type="java.lang.String">
+            <column name="LOCATION" />
+        </property>
+        <property name="time" type="java.lang.String">
+            <column name="TIME" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="STATE" />
+        </property>
+        <property name="start" type="java.sql.Date">
+            <column name="START" />
+        </property>
+    </class>
+</hibernate-mapping>
